@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beranda — Ruang Aksara</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a href="index.html" class="brand">📖 Ruang Aksara</a>
+    <nav>
+      <a href="index.html" class="active">Beranda</a>
+      <a href="cerita.html">Tempat Cerita</a>
+      <a href="tentang.html">Tentang</a>
+    </nav>
+    <button id="theme-toggle">🌙 Mode Malam</button>
+  </header>
+
+  <main class="container">
+    <div class="reader-box" style="text-align: center; padding: 3rem 2rem;">
+      <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Selamat Datang di Ruang Aksara</h1>
+      <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto 2rem auto;">
+        Temukan berbagai koleksi cerita pendek pilihan dari berbagai genre yang menenangkan, imersif, dan penuh makna untuk menemani waktu santaimu.
+      </p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="cerita.html" class="filter-btn active" style="text-decoration: none; padding: 0.8rem 2rem; font-size: 1rem;">Jelajahi Tempat Cerita →</a>
+        <a href="tentang.html" class="filter-btn" style="text-decoration: none; padding: 0.8rem 2rem; font-size: 1rem;">Tentang Proyek</a>
+      </div>
+    </div>
+
+    <div style="margin-top: 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; align-items: stretch;">
+      <div class="card" onclick="location.href='cerita.html'">
+        <div>
+          <div class="genre">Koleksi Lengkap</div>
+          <h3>20 Cerita Pilihan</h3>
+          <p>Nikmati 20 cerita pendek seragam berdurasi 8 paragraf dari genre romantis, dongeng, cerita rakyat nusantara, drama, misteri, hingga sci-fi.</p>
+        </div>
+        <span class="read-more">Mulai Membaca →</span>
+      </div>
+      <div class="card" onclick="location.href='cerita.html'">
+        <div>
+          <div class="genre">Ilustrasi Tematik</div>
+          <h3>Visual Estetik</h3>
+          <p>Setiap cerita dilengkapi dengan gambar ilustrasi sinematik berkualitas tinggi dari Unsplash yang disesuaikan dengan nuansa cerita.</p>
+        </div>
+        <span class="read-more">Lihat Katalog →</span>
+      </div>
+      <div class="card" onclick="location.href='tentang.html'">
+        <div>
+          <div class="genre">Proyek RPL</div>
+          <h3>Informasi & Tujuan</h3>
+          <p>Pelajari latar belakang pembuatan platform literasi digital ini sebagai proyek akhir Cloud Computing kelas XII RPL.</p>
+        </div>
+        <span class="read-more">Baca Selengkapnya →</span>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 Ruang Aksara — Proyek Akhir Cloud Computing XII RPL</p>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    if (localStorage.getItem('tema') === 'dark') {
+      body.classList.add('dark-mode');
+      themeToggle.textContent = '☀️ Mode Siang';
+    }
+
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      if (body.classList.contains('dark-mode')) {
+        localStorage.setItem('tema', 'dark');
+        themeToggle.textContent = '☀️ Mode Siang';
+      } else {
+        localStorage.setItem('tema', 'light');
+        themeToggle.textContent = '🌙 Mode Malam';
+      }
+    });
+  </script>
+</body>
+</html>
